@@ -1,0 +1,18 @@
+{
+  "name": "drum-kit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "drum.js",
+  "homepage": "https://m0hit-singh.github.io/Music-Kit",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.1.0"
+  }
+}
