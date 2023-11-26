@@ -17,6 +17,7 @@ body {
   border-radius: 0.5rem;
   text-align: center;
   background-color: bisque;
+  transition: all 0.07s;
 }
 
 .playing {

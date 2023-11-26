@@ -1,12 +1,23 @@
-window.addEventListener("keypress", function (e) {
-  const keypress = e.charCode;
-  const element = document.querySelector(`.key${keypress}`);
-  if (element) element.classList.add("playing");
+window.addEventListener("DOMContentLoaded", function () {
+  function playSound(e) {
+    const keypress = e.charCode;
+    const audio = document.querySelector(`.audio-key${keypress}`);
+    const key = document.querySelector(`.key${keypress}`);
 
-  const audio = document.querySelector(`.audio-key${keypress}`);
-  audio.play();
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio.play();
+    key.classList.add("playing");
+  }
 
-  this.setTimeout(() => {
-    element.classList.remove("playing");
-  }, 100);
+  function removeTransition(e) {
+    if (e.propertyName !== "transform") return;
+    this.classList.remove("playing");
+  }
+
+  const keys = document.querySelectorAll(".keys");
+  console.log("KKK", keys);
+  keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
+
+  window.addEventListener("keypress", playSound);
 });
